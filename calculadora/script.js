@@ -17,11 +17,27 @@ function pilhaEstaBalanceada (pilha) {
     }
 }
 
+function qt_parenteses_nao_fechados (pilha) {
+    if (pilhaEstaBalanceada == false) {
+        let parentesesA = 0
+        let parentesesB = 0
+        pilha.forEach((parenteses) => {
+            if (parenteses == '(') {parentesesA++}
+            else {parentesesB++}
+        })
+        let parenteses_nao_fechados = parentesesA - parentesesB
+        return (parenteses_nao_fechados)
+    } 
+    return 0
+}
+
 function onClick(btn) {
+    
 
     if(visor.innerText == '|') {
         visor.innerText = ''
     }
+    
     ultimo_caractere_visor = visor.innerText[visor.innerText.length-1]
 
     switch (btn.innerText) {
@@ -50,6 +66,18 @@ function onClick(btn) {
             } else if (pilhaEstaBalanceada(pilha_parenteses) == false) {
                 visor.innerText += ')'
                 pilha_parenteses.push(')')
+            }
+            break;
+        
+        case '=':
+            for (let i = 0; i < qt_parenteses_nao_fechados(pilha_parenteses); i++) {
+                visor += ')'
+            }
+            try {
+                resultado = eval(visor.innerText.replace(/,/g,'.').replace(/x/g,'*'))
+                visor.innerText = String(resultado).replace('.',',')
+            } catch (error) {
+                alert('formato inválido') 
             }
             break;
         

@@ -31,6 +31,7 @@ body {
     justify-content: end;
     align-items: center;
     font-size: 30px;
+    overflow: hidden;
 }
 
 #teclado {
@@ -61,3 +62,11 @@ button {
 .operadores, .parenteses {
     background-color: #4b5161;
 }
+
+.noCopy {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+	user-select: none;
+}
+
