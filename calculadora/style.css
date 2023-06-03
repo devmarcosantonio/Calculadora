@@ -20,13 +20,17 @@ body {
     border-radius: 4px;
     background-color: #004155;
     border: 10px solid #002b39;
-    
+
 }
 
 #visor {
     height: 50px;
     background-color: #a7c28b;
-    border: 4px solid black
+    border: 4px solid black;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 30px;
 }
 
 #teclado {
