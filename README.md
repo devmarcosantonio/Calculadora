@@ -1,2 +1,2 @@
 # Calculadora
- Calculadora feito com Html, Css e Javascript
+ Calculadora feita com HTML, CSS e Javascript!
