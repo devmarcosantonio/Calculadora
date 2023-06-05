@@ -18,7 +18,7 @@ function pilhaEstaBalanceada (pilha) {
 }
 
 function qt_parenteses_nao_fechados (pilha) {
-    if (pilhaEstaBalanceada == false) {
+    if (pilhaEstaBalanceada(pilha) == false) {
         let parentesesA = 0
         let parentesesB = 0
         pilha.forEach((parenteses) => {
@@ -29,6 +29,13 @@ function qt_parenteses_nao_fechados (pilha) {
         return (parenteses_nao_fechados)
     } 
     return 0
+}
+
+function limpar_pilha(pilha) {
+    let tam =  pilha.length
+    for (let i = 0; i < tam; i++) {
+        pilha.pop()
+    }
 }
 
 function onClick(btn) {
@@ -43,9 +50,7 @@ function onClick(btn) {
     switch (btn.innerText) {
         case 'AC':
             visor.innerText = ''
-            pilha_parenteses.forEach(()=>{
-                pilha_parenteses.pop()
-            })
+            limpar_pilha(pilha_parenteses)
             break;
 
         case 'Del':
@@ -63,22 +68,34 @@ function onClick(btn) {
             pilhaEstaBalanceada(pilha_parenteses) == true) {
                 visor.innerText += 'x('
                 pilha_parenteses.push('(')
-            } else if (pilhaEstaBalanceada(pilha_parenteses) == false) {
+            } else if (pilhaEstaBalanceada(pilha_parenteses) == false && pilha_parenteses.length != 0) {
                 visor.innerText += ')'
                 pilha_parenteses.push(')')
             }
             break;
         
         case '=':
-            for (let i = 0; i < qt_parenteses_nao_fechados(pilha_parenteses); i++) {
-                visor += ')'
+            if (visor.innerText == '') {
+                alert('formato inválido')
+
+            } else if(ultimo_caractere_visor == '(') {
+                alert('formato inválido')
+            } else {
+                parenteses_necessarios = qt_parenteses_nao_fechados(pilha_parenteses)
+                for (let i = 0; i < parenteses_necessarios; i++) {
+                    visor.innerText += ')' 
+                    pilha_parenteses.push(')')
+                }
+                try {
+                    resultado = eval(visor.innerText.replace(/,/g,'.').replace(/x/g,'*'))
+                    visor.innerText = String(resultado).replace('.',',')
+                    limpar_pilha(pilha_parenteses)
+                } catch (error) {
+                    alert('formato inválido') 
+                } 
+
             }
-            try {
-                resultado = eval(visor.innerText.replace(/,/g,'.').replace(/x/g,'*'))
-                visor.innerText = String(resultado).replace('.',',')
-            } catch (error) {
-                alert('formato inválido') 
-            }
+            
             break;
         
         default:
