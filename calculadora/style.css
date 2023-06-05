@@ -1,9 +1,10 @@
 body {
+    margin: 0;
     display: flex;
+    height: 100vh;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    height: 90vh;
+    justify-content: space-between;
     font-family: arial;
 
     background-color: #51abc9;
@@ -13,13 +14,13 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-
+    margin-top: 50px;
     width: 300px;
     height: 400px;
     padding: 20px;
     border-radius: 4px;
     background-color: #004155;
-    border: 10px solid #002b39;
+    border: 5px solid #002b39;
 
 }
 
@@ -70,4 +71,25 @@ button {
     -ms-user-select: none;
 	user-select: none;
 }
+
+footer {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 15px;
+    font-style: italic;
+    color: white;
+    background-color: #004155;
+    justify-self: flex-end;
+    padding: 20px;
+    box-sizing: border-box;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+
+    width: 100%;
+}
+
 
