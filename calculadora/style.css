@@ -50,6 +50,12 @@ button {
     background-color: #748389;
     color: white;
     border-radius: 20px;
+    transition-property: background-color;
+    transition-duration: 200ms;
+}
+
+button:hover {
+    background-color: #5d686c;
 }
 
 #btn-igual {
@@ -57,12 +63,25 @@ button {
     background-color: #ff6608;
 }
 
+#btn-igual:hover {
+    grid-column: 3/5;
+    background-color: #bd4800;
+}
+
 .deletadores {
     background-color: #fe0203;
 }
 
+.deletadores:hover {
+    background-color: #d30303;
+}
+
 .operadores, .parenteses {
     background-color: #4b5161;
+}
+
+.operadores:hover, .parenteses:hover {
+    background-color: #3a3f4b;
 }
 
 .noCopy {
