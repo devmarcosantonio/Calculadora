@@ -74,6 +74,14 @@ function onClick(btn) {
             }
             break;
         
+        case ',':
+            if(ultimo_caractere_visor == ',') {
+                alert('formato inválido')
+            } else {
+                visor.innerText += btn.innerText
+            }
+            break;
+        
         case '=':
             if (visor.innerText == '') {
                 alert('formato inválido')
